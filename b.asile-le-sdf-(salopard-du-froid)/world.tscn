@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwn0pqg3fx8d8"]
+[gd_scene load_steps=7 format=3 uid="uid://dwn0pqg3fx8d8"]
 
 [ext_resource type="PackedScene" uid="uid://cc4ed7om2otg3" path="res://Scenes/stage.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://c4bg556yakomq" path="res://Scripts/world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://c8pbiwko6sek6" path="res://Scenes/Characters/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://cpupjvmkodyj1" path="res://Scenes/Props/barrel.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bd4bhiyfha0ql" path="res://Scenes/Characters/basic_enemy.tscn" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(6, 64)
@@ -12,6 +13,7 @@ size = Vector2(6, 64)
 script = ExtResource("1_tlwt5")
 
 [node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(0, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(50, 32)
@@ -19,14 +21,20 @@ position = Vector2(50, 32)
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
 position = Vector2(-50, -32)
 
-[node name="LeftWall" type="StaticBody2D" parent="Camera/InvisibleWalls"]
+[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls"]
 position = Vector2(0, 32)
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall"]
 shape = SubResource("RectangleShape2D_tlwt5")
 
-[node name="RightWall" type="StaticBody2D" parent="Camera/InvisibleWalls"]
+[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls"]
 position = Vector2(100, 32)
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall"]
 shape = SubResource("RectangleShape2D_tlwt5")
@@ -39,3 +47,23 @@ position = Vector2(50, 52)
 
 [node name="Barrel" parent="ActoresContainer" instance=ExtResource("4_aqk2v")]
 position = Vector2(81, 54)
+
+[node name="BasicEnemy" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(137, 50)
+player = NodePath("../Player")
+
+[node name="BasicEnemy2" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(23, 54)
+player = NodePath("../Player")
+
+[node name="BasicEnemy3" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(29, 46)
+player = NodePath("../Player")
+
+[node name="BasicEnemy4" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(159, 55)
+player = NodePath("../Player")
+
+[node name="BasicEnemy5" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(63, 46)
+player = NodePath("../Player")

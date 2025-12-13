@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	sprite.position = Vector2.UP * height
 	handle_air_time(delta)
 
-func on_receive_damage(damage: int, direction: Vector2) -> void:
+func on_receive_damage(_asdamage: int, direction: Vector2, _hit_type: DamageReceiver.HitType) -> void:
 	if state == States.IDLE:
 		sprite.frame = 1
 		height_speed = knockback_intensity * 2
