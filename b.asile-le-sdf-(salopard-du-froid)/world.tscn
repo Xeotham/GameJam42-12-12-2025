@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwn0pqg3fx8d8"]
+
+[ext_resource type="PackedScene" uid="uid://cc4ed7om2otg3" path="res://Scenes/stage.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://c4bg556yakomq" path="res://Scripts/world.gd" id="1_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://c8pbiwko6sek6" path="res://Scenes/Characters/player.tscn" id="2_fj7yv"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_tlwt5")
+
+[node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
+
+[node name="Player" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(50, 52)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(51, 53)
