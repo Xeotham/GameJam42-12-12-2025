@@ -37,7 +37,7 @@ enum States {
 	PREP_ATTACK
 }
 
-var anim_attacks := ["Punch", "Punch_alt", "Kick", "Roundkick"]
+var anim_attacks := []
 var anim_map : Dictionary = {
 	States.IDLE:		"Idle",
 	States.WALK:		"Walk",
@@ -49,7 +49,8 @@ var anim_map : Dictionary = {
 	States.FALL:		"Fall",
 	States.GROUNDED:	"Grounded",
 	States.DEATH:		"Grounded",
-	States.FLY:			"Fly"
+	States.FLY:			"Fly",
+	States.PREP_ATTACK:	"Idle"
 }
 
 var attack_combo_index := 0
@@ -73,9 +74,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	handle_input()
 	handle_movement()
+	handle_prep_attack()
 	handle_animation()
 	handle_airtime(delta)
-	handle_prep_attack()
 	handle_grounded()
 	handle_death(delta)
 	set_heading()
