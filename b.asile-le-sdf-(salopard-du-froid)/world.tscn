@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd4bhiyfha0ql" path="res://Scenes/Characters/basic_enemy.tscn" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
-size = Vector2(6, 64)
+size = Vector2(6, 100)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
@@ -16,10 +16,11 @@ script = ExtResource("1_tlwt5")
 position = Vector2(0, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(50, 32)
+position = Vector2(100, 15)
+limit_left = -10000024
 
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
-position = Vector2(-50, -32)
+position = Vector2(-50, -30)
 
 [node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls"]
 position = Vector2(0, 32)
@@ -28,6 +29,7 @@ collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall"]
+position = Vector2(-50, -2)
 shape = SubResource("RectangleShape2D_tlwt5")
 
 [node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls"]
@@ -37,6 +39,7 @@ collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall"]
+position = Vector2(50, -2)
 shape = SubResource("RectangleShape2D_tlwt5")
 
 [node name="ActoresContainer" type="Node2D" parent="."]
@@ -51,6 +54,30 @@ position = Vector2(81, 54)
 [node name="BasicEnemy" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
 position = Vector2(137, 50)
 player = NodePath("../Player")
+
+[node name="BasicEnemy" parent="ActoresContainer/BasicEnemy" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(224, -1)
+player = NodePath("../../Player")
+
+[node name="BasicEnemy" parent="ActoresContainer/BasicEnemy/BasicEnemy" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(137, 50)
+player = NodePath("../../../Player")
+
+[node name="BasicEnemy" parent="ActoresContainer/BasicEnemy/BasicEnemy/BasicEnemy" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(-11, -74)
+player = NodePath("../../../../Player")
+
+[node name="BasicEnemy" parent="ActoresContainer/BasicEnemy/BasicEnemy/BasicEnemy/BasicEnemy" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(173, -25)
+player = NodePath("../../../../../Player")
+
+[node name="BasicEnemy" parent="ActoresContainer/BasicEnemy/BasicEnemy/BasicEnemy/BasicEnemy/BasicEnemy" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(137, 50)
+player = NodePath("../../../../../../Player")
+
+[node name="BasicEnemy" parent="ActoresContainer/BasicEnemy/BasicEnemy/BasicEnemy/BasicEnemy/BasicEnemy/BasicEnemy" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(137, 50)
+player = NodePath("../../../../../../../Player")
 
 [node name="BasicEnemy2" parent="ActoresContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
 position = Vector2(23, 54)

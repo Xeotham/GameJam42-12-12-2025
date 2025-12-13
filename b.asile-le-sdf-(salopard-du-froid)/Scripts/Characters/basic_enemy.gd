@@ -26,8 +26,8 @@ func handle_input() -> void:
 func is_player_within_range() -> bool:
 	return (player_slot.global_position - global_position).length() < 1
 
-func handle_prep_attack() -> void:
-	if state == States.PREP_ATTACK and (Time.get_ticks_msec() - time_since_prep_hit) > duration_prep_hit
+#func handle_prep_attack() -> void:
+	#if state == States.PREP_ATTACK and (Time.get_ticks_msec() - time_since_prep_hit) > duration_prep_hit
 
 func set_heading() -> void:
 	if player == null:

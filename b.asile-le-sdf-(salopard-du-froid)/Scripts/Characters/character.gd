@@ -49,7 +49,8 @@ var anim_map : Dictionary = {
 	States.FALL:		"Fall",
 	States.GROUNDED:	"Grounded",
 	States.DEATH:		"Grounded",
-	States.FLY:			"Fly"
+	States.FLY:			"Fly",
+	States.PREP_ATTACK:	"Punch"
 }
 
 var attack_combo_index := 0
