@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://ysyubbaswly0"]
+
+[ext_resource type="Texture2D" uid="uid://bk0yljluqxxxo" path="res://Assets/art/backgrounds/winter-city-background.png" id="1_84iix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84iix"]
+size = Vector2(1120, 48)
+
+[node name="Stage" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(0, -49)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D"]
+position = Vector2(160, 0)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D/Sprite2D"]
+position = Vector2(160, 0)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D/Sprite2D/Sprite2D"]
+position = Vector2(160, 0)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D/Sprite2D/Sprite2D/Sprite2D"]
+position = Vector2(160, 0)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D/Sprite2D/Sprite2D/Sprite2D/Sprite2D"]
+position = Vector2(160, 0)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D/Sprite2D/Sprite2D/Sprite2D/Sprite2D/Sprite2D"]
+position = Vector2(160, 0)
+texture = ExtResource("1_84iix")
+centered = false
+
+[node name="WorldCollider" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldCollider"]
+position = Vector2(286, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldCollider/StaticBody2D"]
+position = Vector2(274, -4)
+shape = SubResource("RectangleShape2D_84iix")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldCollider/StaticBody2D"]
+position = Vector2(274, 88)
+shape = SubResource("RectangleShape2D_84iix")
