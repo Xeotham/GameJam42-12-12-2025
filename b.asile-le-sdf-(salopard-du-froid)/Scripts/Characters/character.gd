@@ -4,6 +4,7 @@ extends CharacterBody2D
 const	GRAVITY := 600.0
 
 @export var max_health : int
+@export var type: Type
 @export var duration_grounded : float
 @export var damage : int
 @export var damage_power : int
@@ -37,7 +38,12 @@ enum States {
 	PREP_ATTACK
 }
 
-var anim_attacks := ["Punch", "Punch_alt", "Kick", "Roundkick"]
+enum Type {
+	PLAYER,
+	GOON
+}
+
+var anim_attacks := []
 var anim_map : Dictionary = {
 	States.IDLE:		"Idle",
 	States.WALK:		"Walk",
@@ -50,7 +56,7 @@ var anim_map : Dictionary = {
 	States.GROUNDED:	"Grounded",
 	States.DEATH:		"Grounded",
 	States.FLY:			"Fly",
-	States.PREP_ATTACK:	"Punch"
+	States.PREP_ATTACK:	"Idle"
 }
 
 var attack_combo_index := 0

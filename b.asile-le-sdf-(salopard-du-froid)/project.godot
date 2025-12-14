@@ -15,10 +15,17 @@ run/main_scene="uid://dwn0pqg3fx8d8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EntityManager="*res://Utils/entity_manager.gd"
+StageManager="*res://Utils/stage_manager.gd"
+
 [display]
 
 window/size/viewport_width=200
 window/size/viewport_height=100
+window/size/window_width_override=1000
+window/size/window_height_override=500
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
