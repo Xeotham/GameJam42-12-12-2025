@@ -11,7 +11,8 @@ extends Node2D
 #}
 
 const ENEMY_MAP := {
-	Character.Type.GOON: preload("res://Scenes/Characters/basic_enemy.tscn")
+	Character.Type.GOON: preload("res://Scenes/Characters/basic_enemy.tscn"),
+	Character.Type.STRONGER_GOON: preload("res://Scenes/Characters/stronger_enemy.tscn")
 }
 
 

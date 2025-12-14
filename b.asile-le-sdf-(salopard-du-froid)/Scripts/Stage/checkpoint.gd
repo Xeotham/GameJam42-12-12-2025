@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 func can_spawn_enemies() -> bool:
 	return enemy_data.size() > 0 and active_enemy_counter < nb_simultaneous_enemies
 
-func on_enemy_death(_enemy: Character) -> void:
+func on_enemy_death(_enemy: Character, _hit_type: DamageReceiver.HitType) -> void:
 	active_enemy_counter -= 1
 	if active_enemy_counter == 0 and enemy_data.size() == 0:
 		StageManager.checkpoint_complete.emit()

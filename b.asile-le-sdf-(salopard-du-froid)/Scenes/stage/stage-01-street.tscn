@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm20vcbvu6b54"]
+[gd_scene load_steps=6 format=3 uid="uid://dm20vcbvu6b54"]
 
 [ext_resource type="PackedScene" uid="uid://cc4ed7om2otg3" path="res://Scenes/stage/stage.tscn" id="1_12p5n"]
-[ext_resource type="Texture2D" uid="uid://bk0yljluqxxxo" path="res://Assets/art/backgrounds/winter-city-background.png" id="2_sl4ht"]
+[ext_resource type="Texture2D" uid="uid://cwwmcr32s8b1e" path="res://Assets/art/backgrounds/winter_city_background.png" id="2_wldw1"]
 [ext_resource type="PackedScene" uid="uid://c82jharbch1ql" path="res://Scenes/stage/checkpoint.tscn" id="3_slrlf"]
 [ext_resource type="PackedScene" uid="uid://bd4bhiyfha0ql" path="res://Scenes/Characters/basic_enemy.tscn" id="4_wldw1"]
+[ext_resource type="PackedScene" uid="uid://bd2al7geevqia" path="res://Scenes/Characters/stronger_enemy.tscn" id="5_wldw1"]
 
 [node name="Stage-01-Streets" instance=ExtResource("1_12p5n")]
+music = 2
 
 [node name="MainBackground" parent="Background" index="0"]
 position = Vector2(1, -49)
-texture = ExtResource("2_sl4ht")
+texture = ExtResource("2_wldw1")
+
+[node name="StaticBody2D" parent="WorldCollider" index="0"]
+position = Vector2(62, 1)
+
+[node name="CollisionShape2D2" parent="WorldCollider/StaticBody2D" index="1"]
+position = Vector2(246, 86)
 
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("3_slrlf")]
 position = Vector2(2, -36)
@@ -27,8 +35,8 @@ position = Vector2(266, 73)
 position = Vector2(246, 103)
 
 [node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("3_slrlf")]
-position = Vector2(219, -39)
-nb_simultaneous_enemies = 4
+position = Vector2(281, -36)
+nb_simultaneous_enemies = 3
 
 [node name="BasicEnemy" parent="Checkpoints/Checkpoint2/Enemies" index="0" instance=ExtResource("4_wldw1")]
 position = Vector2(-42, 56)
@@ -39,17 +47,14 @@ position = Vector2(-42, 56)
 [node name="BasicEnemy6" parent="Checkpoints/Checkpoint2/Enemies" index="2" instance=ExtResource("4_wldw1")]
 position = Vector2(-42, 56)
 
-[node name="BasicEnemy7" parent="Checkpoints/Checkpoint2/Enemies" index="3" instance=ExtResource("4_wldw1")]
-position = Vector2(-42, 56)
+[node name="StrongerEnemy" parent="Checkpoints/Checkpoint2/Enemies" index="3" instance=ExtResource("5_wldw1")]
+position = Vector2(139, 56)
 
-[node name="BasicEnemy2" parent="Checkpoints/Checkpoint2/Enemies" index="4" instance=ExtResource("4_wldw1")]
-position = Vector2(-34, 87)
+[node name="StrongerEnemy2" parent="Checkpoints/Checkpoint2/Enemies" index="4" instance=ExtResource("5_wldw1")]
+position = Vector2(147, 119)
 
-[node name="BasicEnemy3" parent="Checkpoints/Checkpoint2/Enemies" index="5" instance=ExtResource("4_wldw1")]
-position = Vector2(266, 73)
-
-[node name="BasicEnemy4" parent="Checkpoints/Checkpoint2/Enemies" index="6" instance=ExtResource("4_wldw1")]
-position = Vector2(246, 103)
+[node name="StrongerEnemy3" parent="Checkpoints/Checkpoint2/Enemies" index="5" instance=ExtResource("5_wldw1")]
+position = Vector2(165, 89)
 
 [editable path="Checkpoints/Checkpoint"]
 [editable path="Checkpoints/Checkpoint2"]

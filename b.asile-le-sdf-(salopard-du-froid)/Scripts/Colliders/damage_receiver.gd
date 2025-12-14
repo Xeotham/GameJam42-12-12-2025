@@ -4,7 +4,9 @@ extends Area2D
 enum HitType {
 	NORMAL,
 	KNOCKDOWN,
-	POWER
+	POWER,
+	SPECIAL,
+	NONE
 }
 
 signal damage_received(damage: int, direction: Vector2, hit_type: HitType)

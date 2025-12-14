@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://deuuli3x3g7u0"]
+
+[ext_resource type="PackedScene" uid="uid://bd2al7geevqia" path="res://Scenes/Characters/stronger_enemy.tscn" id="1_1svc5"]
+[ext_resource type="Texture2D" uid="uid://dfsip17qx0f7h" path="res://Assets/art/characters/even_stronger_child.png" id="2_73ys2"]
+
+[node name="EvenStrongerEnemy" instance=ExtResource("1_1svc5")]
+max_health = 50
+damage = 5
+speed = 50
+
+[node name="CharacterSprite" parent="." index="1"]
+texture = ExtResource("2_73ys2")
+
+[editable path="DamageEmitter"]
+[editable path="DamageReceiver"]
+[editable path="CollateralDamageEmitter"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8pbiwko6sek6"]
+[gd_scene load_steps=18 format=3 uid="uid://c8pbiwko6sek6"]
 
 [ext_resource type="PackedScene" uid="uid://b3vqcfw4hdg4j" path="res://Scenes/Characters/character.tscn" id="1_3etf2"]
 [ext_resource type="Texture2D" uid="uid://d0s2ccf0c21ji" path="res://Assets/art/characters/player.png" id="2_40svl"]
@@ -257,6 +257,49 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_khnq4"]
+resource_name = "Special"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [60, 61]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_action_complete"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageEmitter:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_gy20a"]
 resource_name = "walk"
 length = 0.8
@@ -284,6 +327,7 @@ _data = {
 &"Punch_alt": SubResource("Animation_fcmex"),
 &"RESET": SubResource("Animation_al8ar"),
 &"Roundkick": SubResource("Animation_cueqf"),
+&"Special": SubResource("Animation_khnq4"),
 &"Walk": SubResource("Animation_gy20a")
 }
 
@@ -291,7 +335,7 @@ _data = {
 size = Vector2(13, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al8ar"]
-size = Vector2(12, 16)
+size = Vector2(14, 15)
 
 [node name="Player" instance=ExtResource("1_3etf2")]
 collision_layer = 2
@@ -320,11 +364,11 @@ libraries = {
 autoplay = "Idle"
 
 [node name="DamageEmitter" parent="." index="4"]
-position = Vector2(0, -12)
+position = Vector2(0, -18)
 collision_mask = 96
 
 [node name="CollisionShape2D" parent="DamageEmitter" index="0"]
-position = Vector2(16, -6)
+position = Vector2(15, 0)
 shape = SubResource("RectangleShape2D_40svl")
 
 [node name="DamageReceiver" parent="." index="5"]
@@ -332,22 +376,22 @@ position = Vector2(0, -18)
 collision_layer = 16
 
 [node name="CollisionShape2D" parent="DamageReceiver" index="0"]
-position = Vector2(2, 0)
+position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_al8ar")
 
 [node name="EnemySlots" type="Node2D" parent="." index="6"]
 
 [node name="EnemySlot" parent="EnemySlots" index="0" instance=ExtResource("4_gy20a")]
-position = Vector2(16, 3)
+position = Vector2(16, 1)
 
 [node name="EnemySlot2" parent="EnemySlots" index="1" instance=ExtResource("4_gy20a")]
-position = Vector2(16, -2)
+position = Vector2(16, -5)
 
 [node name="EnemySlot3" parent="EnemySlots" index="2" instance=ExtResource("4_gy20a")]
-position = Vector2(-14, 3)
+position = Vector2(-16, 1)
 
 [node name="EnemySlot4" parent="EnemySlots" index="3" instance=ExtResource("4_gy20a")]
-position = Vector2(-15, 0)
+position = Vector2(-16, -4)
 
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]

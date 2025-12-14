@@ -12,7 +12,7 @@ var time_since_prep_hit := Time.get_ticks_msec()
 
 func _ready() -> void:
 	super._ready()
-	anim_attacks = ["Punch", "Punch_alt"]
+	anim_attacks = ["Punch", "Punch"]
 
 func handle_input() -> void:
 	if player != null and can_move():
@@ -52,6 +52,8 @@ func can_attack() -> bool:
 
 func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver.HitType) -> void:
 	super.on_receive_damage(amount, direction, hit_type)
+	print(hit_type)
 	if current_health == 0:
+		killed_by = hit_type
 		player.free_slots(self)
-		EntityManager.death_enemy.emit(self)
+		EntityManager.death_enemy.emit(self, killed_by)

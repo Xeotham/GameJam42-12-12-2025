@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4ed7om2otg3"]
+[gd_scene load_steps=3 format=3 uid="uid://cc4ed7om2otg3"]
+
+[ext_resource type="Script" uid="uid://com7w68jpvm53" path="res://Scripts/Stage/stage.gd" id="1_yxtqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84iix"]
-size = Vector2(481, 48)
+size = Vector2(614.5, 48)
 
 [node name="Stage" type="Node2D"]
+script = ExtResource("1_yxtqh")
 
 [node name="Background" type="Node2D" parent="."]
 

@@ -5,20 +5,31 @@ signal healthChanged
 
 @onready var enemy_slots : Array = $EnemySlots.get_children()
 
+var hit_sound = [SoundManager.Sound.BURP, SoundManager.Sound.FART]
+
 func _ready() -> void:
 	super._ready()
 	anim_attacks = ["Punch", "Punch_alt", "Kick", "Roundkick"]
+	anim_specials = ["Special"]
 
 func handle_input() -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * speed
-	if can_attack() and Input.is_action_just_pressed("Attack"):
-		state = States.ATTACK
-		if is_last_hit_succesful:
-			attack_combo_index = (attack_combo_index + 1) % anim_attacks.size()
+	if can_attack():
+		if Input.is_action_just_pressed("Attack"):
+			hit_sound.shuffle()
+			SoundPlayer.play(hit_sound[0], true)
+			state = States.ATTACK
+			if is_last_hit_succesful:
+				attack_combo_index = (attack_combo_index + 1) % anim_attacks.size()
+				is_last_hit_succesful = false
+			else:
+				attack_combo_index = 0
+		elif Input.is_action_just_pressed("Special"):
+			SoundPlayer.play(SoundManager.Sound.SNEEZE, true)
+			state = States.SPECIAL
 			is_last_hit_succesful = false
-		else:
-			attack_combo_index = 0
+			
 
 func set_heading() -> void:
 	if velocity.x > 0:
@@ -49,5 +60,6 @@ func free_slots(enemy: BasicEnemy) -> void:
 		target_slot[0].free_up()
 
 func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver.HitType) -> void:
-	healthChanged.emit()
 	super.on_receive_damage(amount, direction, hit_type)
+	healthChanged.emit()
+	print(current_health)

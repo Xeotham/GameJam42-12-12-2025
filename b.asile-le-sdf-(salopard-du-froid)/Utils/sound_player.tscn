@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b546riiknllye"]
+
+[ext_resource type="Script" uid="uid://cev42q66ojfd8" path="res://Utils/sound_manager.gd" id="1_xhdv7"]
+[ext_resource type="AudioStream" uid="uid://x5b27t46x3o5" path="res://Assets/sfx/burp.wav" id="2_maysd"]
+[ext_resource type="AudioStream" uid="uid://b2nul480tpgkg" path="res://Assets/sfx/fart.wav" id="3_w01qd"]
+[ext_resource type="AudioStream" uid="uid://cyde5d8egrmbv" path="res://Assets/sfx/sneeze.wav" id="4_w01qd"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_xhdv7")
+
+[node name="Burp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_maysd")
+bus = &"SFX"
+
+[node name="Fart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w01qd")
+bus = &"SFX"
+
+[node name="Sneeze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_w01qd")
+volume_db = -11.107
+bus = &"SFX"

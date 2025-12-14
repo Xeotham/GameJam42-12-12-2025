@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgdoboqar74ro"]
+
+[ext_resource type="PackedScene" uid="uid://cc4ed7om2otg3" path="res://Scenes/stage/stage.tscn" id="1_m7t41"]
+[ext_resource type="Texture2D" uid="uid://dir1a8yghy8uv" path="res://Assets/art/backgrounds/winter_city_forest_background.png" id="2_r4fea"]
+[ext_resource type="PackedScene" uid="uid://c82jharbch1ql" path="res://Scenes/stage/checkpoint.tscn" id="3_f1i73"]
+[ext_resource type="PackedScene" uid="uid://bd2al7geevqia" path="res://Scenes/Characters/stronger_enemy.tscn" id="4_o400m"]
+[ext_resource type="PackedScene" uid="uid://deuuli3x3g7u0" path="res://Scenes/Characters/even_stronger_enemy.tscn" id="5_o400m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1i73"]
+size = Vector2(82, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o400m"]
+size = Vector2(60, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7haim"]
+size = Vector2(75.5, 164.5)
+
+[node name="Stage-02-Street-Forest" instance=ExtResource("1_m7t41")]
+
+[node name="MainBackground" parent="Background" index="0"]
+texture = ExtResource("2_r4fea")
+
+[node name="CollisionShape2D" parent="WorldCollider/StaticBody2D" index="0"]
+position = Vector2(312, -2)
+
+[node name="CollisionShape2D2" parent="WorldCollider/StaticBody2D" index="1"]
+position = Vector2(312.75, 88)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldCollider/StaticBody2D" index="2"]
+position = Vector2(329, 56)
+shape = SubResource("RectangleShape2D_f1i73")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldCollider/StaticBody2D" index="3"]
+position = Vector2(329, 27)
+shape = SubResource("RectangleShape2D_o400m")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldCollider/StaticBody2D" index="4"]
+position = Vector2(519, 27)
+shape = SubResource("RectangleShape2D_o400m")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="WorldCollider/StaticBody2D" index="5"]
+position = Vector2(657, 31.75)
+shape = SubResource("RectangleShape2D_7haim")
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("3_f1i73")]
+position = Vector2(66, 3)
+nb_simultaneous_enemies = 4
+
+[node name="StrongerEnemy" parent="Checkpoints/Checkpoint/Enemies" index="0" instance=ExtResource("4_o400m")]
+position = Vector2(-11, 39)
+
+[node name="StrongerEnemy2" parent="Checkpoints/Checkpoint/Enemies" index="1" instance=ExtResource("4_o400m")]
+position = Vector2(-12, 83)
+
+[node name="StrongerEnemy3" parent="Checkpoints/Checkpoint/Enemies" index="2" instance=ExtResource("4_o400m")]
+position = Vector2(155, 38)
+
+[node name="StrongerEnemy4" parent="Checkpoints/Checkpoint/Enemies" index="3" instance=ExtResource("4_o400m")]
+position = Vector2(180, 68)
+
+[node name="StrongerEnemy5" parent="Checkpoints/Checkpoint/Enemies" index="4" instance=ExtResource("4_o400m")]
+position = Vector2(153, 76)
+
+[node name="StrongerEnemy6" parent="Checkpoints/Checkpoint/Enemies" index="5" instance=ExtResource("4_o400m")]
+position = Vector2(134, 45)
+
+[node name="StrongerEnemy7" parent="Checkpoints/Checkpoint/Enemies" index="6" instance=ExtResource("4_o400m")]
+position = Vector2(22, 58)
+
+[node name="StrongerEnemy8" parent="Checkpoints/Checkpoint/Enemies" index="7" instance=ExtResource("4_o400m")]
+position = Vector2(73, 79)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("3_f1i73")]
+position = Vector2(377, -7)
+nb_simultaneous_enemies = 4
+
+[node name="StrongerEnemy" parent="Checkpoints/Checkpoint2/Enemies" index="0" instance=ExtResource("4_o400m")]
+position = Vector2(-11, 39)
+
+[node name="StrongerEnemy2" parent="Checkpoints/Checkpoint2/Enemies" index="1" instance=ExtResource("4_o400m")]
+position = Vector2(-12, 83)
+
+[node name="StrongerEnemy3" parent="Checkpoints/Checkpoint2/Enemies" index="2" instance=ExtResource("4_o400m")]
+position = Vector2(226, 77)
+
+[node name="StrongerEnemy4" parent="Checkpoints/Checkpoint2/Enemies" index="3" instance=ExtResource("4_o400m")]
+position = Vector2(180, 68)
+
+[node name="StrongerEnemy5" parent="Checkpoints/Checkpoint2/Enemies" index="4" instance=ExtResource("4_o400m")]
+position = Vector2(134, 92)
+
+[node name="EvenStrongerEnemy" parent="Checkpoints/Checkpoint2/Enemies" index="5" instance=ExtResource("5_o400m")]
+position = Vector2(41, 41)
+
+[node name="EvenStrongerEnemy2" parent="Checkpoints/Checkpoint2/Enemies" index="6" instance=ExtResource("5_o400m")]
+position = Vector2(207, 46)
+
+[node name="EvenStrongerEnemy3" parent="Checkpoints/Checkpoint2/Enemies" index="7" instance=ExtResource("5_o400m")]
+position = Vector2(58, 80)
+
+[editable path="Checkpoints/Checkpoint"]
+[editable path="Checkpoints/Checkpoint2"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1bhl5vqqaroj"]
+
+[ext_resource type="Texture2D" uid="uid://c4vtretpixic6" path="res://Assets/art/backgrounds/GameOverScreen.png" id="1_0nic4"]
+[ext_resource type="Script" uid="uid://bbxr2m1riscad" path="res://Scripts/Gui/death_screen.gd" id="1_h1gcs"]
+
+[node name="DeathScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1gcs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0nic4")
+expand_mode = 3
