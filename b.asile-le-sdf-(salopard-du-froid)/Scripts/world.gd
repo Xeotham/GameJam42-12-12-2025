@@ -18,3 +18,5 @@ func on_checkpoint_start() -> void:
 
 func on_checkpoint_complete() -> void:
 	is_camera_locked = false
+	
+#test
