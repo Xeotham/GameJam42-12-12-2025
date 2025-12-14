@@ -1,6 +1,8 @@
 class_name Player
 extends Character
 
+signal healthChanged
+
 @onready var enemy_slots : Array = $EnemySlots.get_children()
 
 func _ready() -> void:
@@ -45,3 +47,7 @@ func free_slots(enemy: BasicEnemy) -> void:
 	)
 	if target_slot.size() == 1:
 		target_slot[0].free_up()
+
+func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver.HitType) -> void:
+	healthChanged.emit()
+	super.on_receive_damage(amount, direction, hit_type)
