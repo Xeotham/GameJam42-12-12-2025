@@ -9,6 +9,27 @@
 radius = 2.0
 height = 12.0
 
+<<<<<<< HEAD
+=======
+[sub_resource type="Animation" id="Animation_xccyk"]
+resource_name = "Fall"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [80]
+}
+
+>>>>>>> 36036fb (added player hurt)
 [sub_resource type="Animation" id="Animation_01b8d"]
 resource_name = "Hurt"
 length = 0.3
@@ -58,9 +79,105 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_25bbb"]
 resource_name = "Kick"
 length = 0.25
+=======
+[sub_resource type="Animation" id="Animation_utp2y"]
+resource_name = "Jump"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [62]
+}
+
+[sub_resource type="Animation" id="Animation_xo8ps"]
+resource_name = "jumpkick"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageEmitter:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_25bbb"]
+resource_name = "Kick"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [41, 42, 43, 44, 45]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_action_complete"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageEmitter:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_gdgf0"]
+resource_name = "Landing"
+length = 0.05
+>>>>>>> 36036fb (added player hurt)
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -187,6 +304,49 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_fcmex"]
+resource_name = "Punch_alt"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [31, 32]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_action_complete"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageEmitter:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_al8ar"]
 length = 0.001
 tracks/0/type = "value"
@@ -225,10 +385,17 @@ tracks/0/path = NodePath("CharacterSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+<<<<<<< HEAD
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [51, 52]
+=======
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [51, 52, 53, 54, 55]
+>>>>>>> 36036fb (added player hurt)
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -257,6 +424,40 @@ tracks/2/keys = {
 }]
 }
 
+<<<<<<< HEAD
+=======
+[sub_resource type="Animation" id="Animation_khnq4"]
+resource_name = "Jump"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [61]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_takeoff_complete"
+}]
+}
+
+>>>>>>> 36036fb (added player hurt)
 [sub_resource type="Animation" id="Animation_gy20a"]
 resource_name = "walk"
 length = 0.8
@@ -273,6 +474,26 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 12, 13, 14, 15, 16, 17]
+<<<<<<< HEAD
+=======
+}
+
+[sub_resource type="Animation" id="Animation_h1n2f"]
+resource_name = "grounded"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [82]
+>>>>>>> 36036fb (added player hurt)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_al8ar"]
@@ -291,7 +512,11 @@ _data = {
 size = Vector2(13, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al8ar"]
+<<<<<<< HEAD
 size = Vector2(12, 16)
+=======
+size = Vector2(10, 10)
+>>>>>>> 36036fb (added player hurt)
 
 [node name="Player" instance=ExtResource("1_3etf2")]
 collision_layer = 2
@@ -332,7 +557,11 @@ position = Vector2(0, -18)
 collision_layer = 16
 
 [node name="CollisionShape2D" parent="DamageReceiver" index="0"]
+<<<<<<< HEAD
 position = Vector2(2, 0)
+=======
+position = Vector2(0, 2)
+>>>>>>> 36036fb (added player hurt)
 shape = SubResource("RectangleShape2D_al8ar")
 
 [node name="EnemySlots" type="Node2D" parent="." index="6"]

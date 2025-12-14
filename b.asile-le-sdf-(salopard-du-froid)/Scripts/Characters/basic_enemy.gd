@@ -9,7 +9,6 @@ var player_slot: EnemySlot = null
 var time_since_last_hit := Time.get_ticks_msec()
 var time_since_prep_hit := Time.get_ticks_msec()
 
-
 func _ready() -> void:
 	super._ready()
 	anim_attacks = ["Punch", "Punch_alt"]

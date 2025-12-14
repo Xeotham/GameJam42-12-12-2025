@@ -38,11 +38,6 @@ enum States {
 	PREP_ATTACK
 }
 
-enum Type {
-	PLAYER,
-	GOON
-}
-
 var anim_attacks := []
 var anim_map : Dictionary = {
 	States.IDLE:		"Idle",
@@ -80,9 +75,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	handle_input()
 	handle_movement()
+	handle_prep_attack()
 	handle_animation()
 	handle_airtime(delta)
-	handle_prep_attack()
 	handle_grounded()
 	handle_death(delta)
 	set_heading()
